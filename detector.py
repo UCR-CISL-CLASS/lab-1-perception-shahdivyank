@@ -1,7 +1,10 @@
+from mmdet3d.apis import init_model, inference_detector
+
 class Detector:
     def __init__(self):
-        # Add your initialization logic here
-        pass
+        config_file = 'pointpillars_hv_secfpn_8xb6-160e_kitti-3d-car.py'
+        checkpoint_file = 'hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth'
+        self.model = init_model(config_file, checkpoint_file)
 
     def sensors(self):  # pylint: disable=no-self-use
         """
@@ -62,6 +65,14 @@ class Detector:
                 det_score : numpy.ndarray
                     The confidence score for each predicted bounding box, shape (N, 1) corresponding to the above bounding box.
         """
+
+        print(sensor_data["LIDAR"])
+
+        results = inference_detector(self.model, sensor_data["LIDAR"])
+
+        print("RESULTS", results)
+
+
         return {}
 
     
