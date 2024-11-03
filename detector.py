@@ -68,7 +68,9 @@ class Detector:
 
         print(sensor_data["LIDAR"])
 
-        results = inference_detector(self.model, sensor_data["LIDAR"])
+        _, lidar_array = sensor_data["LIDAR"]
+
+        results = inference_detector(self.model, lidar_array)
 
         print("RESULTS", results)
 
