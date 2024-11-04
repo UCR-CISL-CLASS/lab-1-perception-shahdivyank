@@ -78,14 +78,11 @@ class Detector:
 
         boxes = instances.bboxes_3d
 
-        print(type(boxes))
-
         total_objects = boxes.shape[0]
 
         objects = np.zeros((total_objects, 8, 3))
 
         for object in range(total_objects):
-
             x, y, z, x_size, y_size, z_size, yaw = boxes[object].cpu().numpy().flatten()
 
             objects[object] = [
@@ -93,18 +90,15 @@ class Detector:
                 [x, y, z + z_size], [x, y + y_size, z + z_size],    [x + x_size, y + y_size, z + z_size],   [x + x_size, y, z + z_size]
             ]
 
-        print("GRRRRR", objects)
-
-        print("RESULTS", boxes.shape, type(labels))
-        print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
-
+        print("OBJECTS", objects)
         print("CLASSS", labels)
         print("SCORES", scores)
 
 
         return {
-        #    "det_class": labels.cpu().numpy(),
-        #    "det_score": scores.cpu().numpy()
+           "det_class": labels,
+           "det_score": scores,
+           "det_boxes": objects
         }
 
     
