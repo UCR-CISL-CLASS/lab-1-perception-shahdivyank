@@ -81,10 +81,13 @@ class Detector:
         print("RESULTS", boxes.shape, type(labels))
         print("INSTANCE", boxes[0])
 
+        print("CLASSS", labels.cpu().numpy())
+        print("SCORES", scores.cpu().numpy())
+
 
         return {
-           "det_class": labels.cpu().numpy(),
-           "det_score": scores.cpu().numpy()
+        #    "det_class": labels.cpu().numpy(),
+        #    "det_score": scores.cpu().numpy()
         }
 
     
