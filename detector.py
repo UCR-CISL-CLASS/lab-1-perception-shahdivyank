@@ -74,12 +74,17 @@ class Detector:
 
         labels = instances.labels_3d
         boxes = instances.bboxes_3d
+        scores = instances.scores_3d
 
-        print("RESULTS", boxes.shape)
+
+
+        print("RESULTS", boxes.shape, type(labels))
+        print("INSTANCE", boxes[0])
 
 
         return {
-           "det_class": labels 
+           "det_class": labels,
+           "det_score": scores
         }
 
     
