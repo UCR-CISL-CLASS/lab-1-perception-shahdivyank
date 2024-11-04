@@ -110,6 +110,7 @@ def caluclate_tp_fp(det_boxes, det_score, gt_boxes, result_stat, iou_thresh):
 
         # match prediction and gt bounding box
         for i in range(score_order_descend.shape[0]):
+            print(score_order_descend[i], type(score_order_descend[i]))
             det_polygon = det_polygon_list[score_order_descend[i]]
             ious = compute_iou(det_polygon, gt_polygon_list)
 
