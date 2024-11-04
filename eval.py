@@ -43,7 +43,8 @@ def convert_format(boxes_array):
         list of converted shapely.geometry.Polygon object.
 
     """
-    polygons = [Polygon([(box[i, 0], box[i, 1], box[i, 2]) for i in range(8)]) for box in boxes_array]
+    polygons = [Polygon([(box[i, 0], box[i, 1]) for i in range(4)]) for box in
+                boxes_array]
     return np.array(polygons)
 
 def box_2_polygon(box_array):
