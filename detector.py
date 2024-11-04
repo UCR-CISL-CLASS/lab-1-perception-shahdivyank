@@ -41,7 +41,6 @@ class Detector:
                       'rotation_frequency': 20, 'channels': 64,
                       'upper_fov': 4, 'lower_fov': -20, 'points_per_second': 2304000,
                       'id': 'LIDAR'},
-
             {'type': 'sensor.other.gnss', 'x': 0.7, 'y': -0.4, 'z': 1.60, 'id': 'GPS'}
         ]
 
@@ -91,9 +90,9 @@ class Detector:
             ]
 
         return {
-           "det_class": labels,
-           "det_score": scores,
-           "det_boxes": objects
+        #    "det_class": labels,
+        #    "det_score": scores,
+        #    "det_boxes": objects
         }
 
     
