@@ -75,7 +75,7 @@ class Detector:
         labels = instances.labels_3d
         boxes = instances.bboxes_3d
 
-        print("RESULTS", boxes)
+        print("RESULTS", boxes.shape)
 
 
         return {
