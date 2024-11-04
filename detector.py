@@ -86,7 +86,14 @@ class Detector:
 
         for object in range(total_objects):
 
-            print("GRRRRR", object, boxes[object].cpu().numpy().flatten())
+            x, y, z, x_size, y_size, z_size, yaw = boxes[object].cpu().numpy().flatten()
+
+            objects[object] = [
+                [x, y, z],          [x, y + y_size, z],             [x + x_size, y + y_size, z],            [x + x_size, y, z],
+                [x, y, z + z_size], [x, y + y_size, z + z_size],    [x + x_size, y + y_size, z + z_size],   [x + x_size, y, z + z_size]
+            ]
+
+        print("GRRRRR", objects)
 
         print("RESULTS", boxes.shape, type(labels))
         print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
