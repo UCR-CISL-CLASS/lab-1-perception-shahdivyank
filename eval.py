@@ -161,6 +161,9 @@ def calculate_ap(result_stat, iou, global_sort_detections):
     gt_total = iou_5['gt']
 
     cumsum = 0
+
+    print("FP", fp)
+
     for idx, val in enumerate(fp):
         fp[idx] += cumsum
         cumsum += val
