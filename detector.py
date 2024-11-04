@@ -1,4 +1,5 @@
 from mmdet3d.apis import init_model, inference_detector
+import numpy as np
 
 class Detector:
     def __init__(self):
@@ -72,17 +73,23 @@ class Detector:
 
         instances = predictions.pred_instances_3d
 
-        labels = instances.labels_3d
+        labels = instances.labels_3d.cpu().numpy().reshape(-1, 1)
+        scores = instances.scores_3d.cpu().numpy().reshape(-1, 1)
+
         boxes = instances.bboxes_3d
-        scores = instances.scores_3d
 
+        total_objects = boxes.shape[0]
 
+        objects = np.zeros((total_objects, 8, 3))
+
+        for object in range(total_objects):
+            print("GRRRRR", object, total_objects[object])
 
         print("RESULTS", boxes.shape, type(labels))
         print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
 
-        print("CLASSS", labels.cpu().numpy().shape)
-        print("SCORES", scores.cpu().numpy().reshape(-1, 1).shape)
+        print("CLASSS", labels)
+        print("SCORES", scores)
 
 
         return {
