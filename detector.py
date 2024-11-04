@@ -68,7 +68,7 @@ class Detector:
 
         _, lidar_array = sensor_data["LIDAR"]
 
-        Det3DDataSample, pred_instances_3d = inference_detector(self.model, lidar_array)
+        pred_instances_3d, Det3DDataSample = inference_detector(self.model, lidar_array)
 
         print("RESULTS", pred_instances_3d)
 
