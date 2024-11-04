@@ -79,7 +79,7 @@ class Detector:
 
 
         print("RESULTS", boxes.shape, type(labels))
-        print("INSTANCE", boxes[0], boxes[0][0], boxes[0][1])
+        print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
 
         print("CLASSS", labels.cpu().numpy().shape)
         print("SCORES", scores.cpu().numpy().reshape(-1, 1).shape)
