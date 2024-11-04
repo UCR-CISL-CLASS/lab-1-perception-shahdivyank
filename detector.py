@@ -78,12 +78,14 @@ class Detector:
 
         boxes = instances.bboxes_3d
 
+        print(type(boxes))
+
         total_objects = boxes.shape[0]
 
         objects = np.zeros((total_objects, 8, 3))
 
         for object in range(total_objects):
-            print("GRRRRR", object, total_objects[object])
+            print("GRRRRR", object, boxes[object])
 
         print("RESULTS", boxes.shape, type(labels))
         print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
