@@ -2,12 +2,7 @@
 # Author: Runsheng Xu <rxx3386@ucla.edu>, Yifan Lu <yifan_lu@sjtu.edu.cn>
 # License: TDG-Attribution-NonCommercial-NoDistrib
 
-
-from collections import OrderedDict
-import os
-
 import numpy as np
-import torch
 from shapely.geometry import Polygon
 
 def voc_ap(rec, prec):
@@ -48,8 +43,7 @@ def convert_format(boxes_array):
         list of converted shapely.geometry.Polygon object.
 
     """
-    polygons = [Polygon([(box[i, 0], box[i, 1]) for i in range(4)]) for box in
-                boxes_array]
+    polygons = [Polygon([(box[i, 0], box[i, 1], box[i, 2]) for i in range(8)]) for box in boxes_array]
     return np.array(polygons)
 
 def box_2_polygon(box_array):
