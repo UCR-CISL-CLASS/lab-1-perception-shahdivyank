@@ -66,13 +66,11 @@ class Detector:
                     The confidence score for each predicted bounding box, shape (N, 1) corresponding to the above bounding box.
         """
 
-        print(sensor_data["LIDAR"])
-
         _, lidar_array = sensor_data["LIDAR"]
 
         results = inference_detector(self.model, lidar_array)
 
-        print("RESULTS", results)
+        print("RESULTS", len(results))
 
 
         return {}
