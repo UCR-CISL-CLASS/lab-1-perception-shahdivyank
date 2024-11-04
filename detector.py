@@ -90,9 +90,9 @@ class Detector:
             ]
 
         return {
-        #    "det_class": labels,
-        #    "det_score": scores,
-        #    "det_boxes": objects
+           "det_class": labels,
+           "det_score": scores,
+           "det_boxes": objects
         }
 
     
