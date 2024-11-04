@@ -90,11 +90,6 @@ class Detector:
                 [x, y, z + z_size], [x, y + y_size, z + z_size],    [x + x_size, y + y_size, z + z_size],   [x + x_size, y, z + z_size]
             ]
 
-        print("OBJECTS", objects)
-        print("CLASSS", labels)
-        print("SCORES", scores)
-
-
         return {
            "det_class": labels,
            "det_score": scores,
