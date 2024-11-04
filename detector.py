@@ -83,8 +83,8 @@ class Detector:
 
 
         return {
-           "det_class": labels,
-           "det_score": scores
+           "det_class": labels.cpu().numpy(),
+           "det_score": scores.cpu().numpy()
         }
 
     
