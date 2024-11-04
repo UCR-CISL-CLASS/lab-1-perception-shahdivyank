@@ -85,7 +85,8 @@ class Detector:
         objects = np.zeros((total_objects, 8, 3))
 
         for object in range(total_objects):
-            print("GRRRRR", object, boxes[object].cpu().numpy())
+
+            print("GRRRRR", object, boxes[object].cpu().numpy().flatten())
 
         print("RESULTS", boxes.shape, type(labels))
         print("INSTANCE", boxes[0], boxes[0][0] if len(boxes[0]) > 0 else "nothing")
